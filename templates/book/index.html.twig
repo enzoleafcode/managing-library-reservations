@@ -6,7 +6,7 @@
 {% block body %}
 	<h1>📚 Liste des Livres Disponibles</h1>
 
-	<!-- ✅ Filtre par Catégorie -->
+	<!-- filtre par Catégorie -->
 	<form method="get" class="mb-3">
 		<label for="category">Filtrer par catégorie :</label>
 		<select name="category" id="category" class="form-select" onchange="this.form.submit()">
@@ -19,16 +19,13 @@
 		</select>
 	</form>
 
-	<!-- ✅ Tableau des Livres -->
 	<table class="table">
 		<thead>
 			<tr>
 				<th>Titre</th>
 				<th>Auteur</th>
 				<th>Type</th>
-				{# ✅ Ajout de la colonne "Type" #}
 				<th>Catégorie</th>
-				{# ✅ Ajout de la colonne "Catégorie" #}
 				<th>Disponibilité</th>
 				<th>Action</th>
 			</tr>
@@ -39,7 +36,6 @@
 					<td>{{ book.title }}</td>
 					<td>{{ book.author }}</td>
 					<td>{{ book.type }}</td>
-					{# ✅ Affichage du type #}
 					<td>
 						{% if book.categories is defined and book.categories is not empty %}
 							{% for category in book.categories %}
@@ -52,8 +48,10 @@
 						{% endif %}
 					</td>
 					<td>{{ book.availability ? '✅ Disponible' : '❌ Indisponible' }}</td>
-					
+
 					<td>
+						<a href="{{ path('app_book_show', {'id': book.id}) }}" class="btn btn-info">Détail</a>
+
 						{% set reserved = false %}
 						{% if userReservations is defined %}
 							{% for reservation in userReservations %}
@@ -76,7 +74,6 @@
 							<span class="text-danger">Non disponible</span>
 						{% endif %}
 					</td>
-
 				</tr>
 			{% endfor %}
 		</tbody>

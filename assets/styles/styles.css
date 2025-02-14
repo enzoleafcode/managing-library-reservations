@@ -50,7 +50,25 @@ body {
 
 .table td, .table th {
     text-align: center;
+    font-family: serif;
 }
+
+.table-book {
+    background-color: #212529;
+    color: rgb(8, 7, 7); 
+}
+
+.table-book th, .table-book td {
+    border: 1px solid rgb(114, 113, 111);
+    padding: 10px;
+}
+
+.table-book th {
+    background-color: #006131;
+    color: white;
+    text-transform: uppercase;
+}
+
 
 /* Style des messages Flash */
 .alert {
@@ -91,6 +109,7 @@ p, li {
     font-size: 1.1em;
 }
 
+
 footer {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
@@ -99,3 +118,7 @@ footer {
     border-radius: 5px;
 }
 
+.book-image{
+    max-height: 250px;
+    border-radius: 50%;
+}
