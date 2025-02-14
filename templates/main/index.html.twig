@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+	<div class="text-center">
+		<h1>Bienvenue dans votre bibliothèque</h1>
+		<h3>Consultez les livres disponibles et effectuez une réservation en un click!</h3>
+	</div>
+
+	<div class="btn-center">
+		<a href="{{ path('book_list') }}" class="btn btn-primary">Voir les Livres</a>
+		{% if is_granted('ROLE_ADMIN') %}
+			<a href="{{ path('admin_dashboard') }}" class="btn btn-warning">Espace Admin</a>
+		{% endif %}
+	</div>
+	<div class="row mt-4">
+		<div class="col-md-1"></div>
+
+		<div class="col-md-3">
+			<section id="horaires">
+				<h2>Horaires d'Ouverture</h2>
+				<ul class="list-group">
+					<li class="list-group-item">Lundi - Vendredi : 9h00 - 18h00</li>
+					<li class="list-group-item">Samedi : 10h00 - 17h00</li>
+					<li class="list-group-item">Dimanche : Fermé</li>
+				</ul>
+			</section>
+		</div>
+		<div class="col-md-3"></div>
+		<div class="col-md-4">
+			<section id="collections">
+				<h2>Collections</h2>
+				<ul class="list-group">
+					<li class="list-group-item">Littérature : Romans, poésie, théâtre.</li>
+					<li class="list-group-item">Documentaires : Histoire, sciences, arts.</li>
+					<li class="list-group-item">Bandes Dessinées : Mangas, comics, BD franco-belges.</li>
+					<li class="list-group-item">Presse et Magazines : Actualités, loisirs, sciences.</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-md-1"></div>
+		<div class="col-md-4">
+			<section id="services" class="mt-4">
+				<h2>Services Offerts</h2>
+				<ul class="list-group">
+					<li class="list-group-item">Prêt de Livres : Empruntez jusqu'à 5 livres pour une durée de 3 semaines.</li>
+					<li class="list-group-item">Espace Numérique : Accès gratuit à des ordinateurs et au Wi-Fi.</li>
+					<li class="list-group-item">Ateliers et Événements : Participez à nos ateliers de lecture, clubs de lecture, et événements culturels.</li>
+					<li class="list-group-item">Section Enfants : Un espace dédié aux enfants avec des livres adaptés à tous les âges.</li>
+				</ul>
+			</section>
+		</div>
+		<div class="col-md-2"></div>
+
+		<div class="col-md-4"></section>
+		<section id="inscription" class="mt-4">
+			<h2>Inscription</h2>
+			<ul class="list-group">
+				<li class="list-group-item">Gratuit pour les résidents de la commune.</li>
+				<li class="list-group-item">Pièces à fournir : Carte d'identité et justificatif de domicile.</li>
+			</ul>
+		</section>
+	</div>
+</div></div><div class="row mt-4">
+<div class="col-md-1"></div>
+<div class="col-md-4">
+	<section id="contact">
+		<h2>Contact</h2>
+		<ul class="list-group">
+			<li class="list-group-item">Adresse : 123 Rue de la Lecture, 75000 Paris</li>
+			<li class="list-group-item">Téléphone : 01 23 45 67 89</li>
+			<li class="list-group-item">Email :
+				<a href="mailto:bibliotheque@example.com">bibliotheque@example.com</a>
+			</li>
+		</ul>
+	</section>
+</div>
+<div class="col-md-2"></div>
+<div class="col-md-2">
+	<section id="suivez-nous">
+		<h2>Suivez-nous</h2>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<a href="https://facebook.com/BibliothèqueMunicipale">Facebook</a>
+			</li>
+			<li class="list-group-item">
+				<a href="https://instagram.com/BiblioMunicipale">Instagram</a>
+			</li>
+			<li class="list-group-item">
+				<a href="https://twitter.com/BiblioMun">Twitter</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="row mt-3">
+	<div class="col-md-3"></div>
+	<div class="col-md-6"></section>
+	<section id="accessibilite" class="mt-4">
+		<h2>Accessibilité</h2>
+		<ul class="list-group">
+			<li class="list-group-item">Accès PMR : La bibliothèque est accessible aux personnes à mobilité réduite.</li>
+			<li class="list-group-item">Ascenseur : Disponible pour accéder à tous les étages.</li>
+		</ul>
+	</section>
+</div>
+</div>
+<footer class="mt-3 mb-3 text-center">
+<h5>Nous vous attendons nombreux pour partager avec vous notre passion de la lecture et de la culture !</h5>
+</footer>
+{% endblock %}

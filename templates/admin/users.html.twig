@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Utilisateurs
+{% endblock %}
+
+{% block body %}
+	<h1>👥 Gestion des Utilisateurs</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Email</th>
+				<th>Rôle</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.roles|join(', ') }}</td>
+					<td>
+						<!-- Bouton de suppression ou modification -->
+						<a href="{{ path('admin_edit_user', {'id': user.id}) }}" class="btn btn-warning btn-sm">✏️ Modifier</a>
+						<form action="{{ path('admin_delete_user', {'id': user.id}) }}" method="post" class="d-inline">
+							<button type="submit" class="btn btn-danger btn-sm">❌ Supprimer</button>
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
+

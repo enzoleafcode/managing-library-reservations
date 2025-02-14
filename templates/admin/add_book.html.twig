@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Livre
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter un Livre</h1>
+
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }} {# ✅ S'assure que le formulaire est bien soumis en POST #}
+
+	<div class="mb-3">
+		<label for="{{ form.title.vars.id }}" class="form-label">Titre</label>
+		{{ form_widget(form.title, { 'attr': {'class': 'form-control'} }) }}
+	</div>
+
+	<div class="mb-3">
+		<label for="{{ form.author.vars.id }}" class="form-label">Auteur</label>
+		{{ form_widget(form.author, { 'attr': {'class': 'form-control'} }) }}
+	</div>
+
+	<div class="mb-3">
+		<label for="{{ form.type.vars.id }}" class="form-label">Type</label>
+		{{ form_widget(form.type, { 'attr': {'class': 'form-control'} }) }}
+	</div>
+
+	<div class="mb-3">
+		<label for="{{ form.categories.vars.id }}" class="form-label">Catégories</label>
+		{{ form_widget(form.categories, { 'attr': {'class': 'form-check'} }) }}
+	</div>
+
+	<div class="mb-3">
+		<label for="{{ form.availability.vars.id }}" class="form-label">Disponibilité</label>
+		{{ form_widget(form.availability, { 'attr': {'class': 'form-check-input'} }) }}
+	</div>
+
+	<button type="submit" class="btn btn-primary">Enregistrer</button>
+
+	{{ form_end(form) }}
+
+	<a href="{{ path('admin_books') }}" class="btn btn-secondary">Retour</a>
+{% endblock %}

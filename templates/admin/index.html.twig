@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de Bord Admin
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">📊 Tableau de Bord Admin</h1>
+
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card text-center">
+					<div class="card-body">
+						<h5 class="card-title">📚 Gestion des Livres</h5>
+						<p class="card-text">Ajoutez, modifiez ou supprimez des livres de la bibliothèque.</p>
+						<a href="{{ path('admin_books') }}" class="btn btn-primary">Gérer les Livres</a>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="card text-center">
+					<div class="card-body">
+						<h5 class="card-title">👥 Gestion des Utilisateurs</h5>
+						<p class="card-text">Voir la liste des utilisateurs et gérer leurs accès.</p>
+						<a href="{{ path('admin_users') }}" class="btn btn-warning">Gérer les Utilisateurs</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row my-4"></div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card text-center">
+					<div class="card-body">
+						<h5 class="card-title">📅 Gestion des Réservations</h5>
+						<p class="card-text">Valider ou supprimez les réservations des utilisateurs.</p>
+						<a href="{{ path('admin_reservations') }}" class="btn btn-info">Gérer les Réservations</a>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	{% endblock %}

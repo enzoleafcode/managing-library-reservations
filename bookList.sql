@@ -1,0 +1,16 @@
+INSERT INTO book (type, title, author, availability) VALUES
+('Roman', 'Le Petit Prince', 'Antoine de Saint-Exupéry', true),
+('Science-fiction', 'Dune', 'Frank Herbert', true),
+('Fantaisie', 'Le Seigneur des Anneaux', 'J.R.R. Tolkien', true),
+('Roman', '1984', 'George Orwell', true),
+('Policier', 'Sherlock Holmes', 'Arthur Conan Doyle', true),
+('Fantaisie', 'Harry Potter à l\'école des sorciers', 'J.K. Rowling', true),
+('Science-fiction', 'Fondation', 'Isaac Asimov', true),
+('Horreur', 'Ça', 'Stephen King', true),
+('Aventure', 'L\'île au trésor', 'Robert Louis Stevenson', true),
+('Historique', 'Les Misérables', 'Victor Hugo', true),
+('Roman', 'Madame Bovary', 'Gustave Flaubert', true),
+('Science-fiction', 'Neuromancien', 'William Gibson', true),
+('Philosophie', 'Ainsi parlait Zarathoustra', 'Friedrich Nietzsche', true),
+('Fantastique', 'Dracula', 'Bram Stoker', true),
+('Roman', 'L\'Étranger', 'Albert Camus', true);

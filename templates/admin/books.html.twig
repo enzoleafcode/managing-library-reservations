@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Livres
+{% endblock %}
+
+{% block body %}
+	<h1>📚 Gestion des Livres</h1>
+
+	<!-- Bouton Ajouter un livre -->
+	<a href="{{ path('admin_add_book') }}" class="btn btn-primary mb-3">➕ Ajouter un Livre</a>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Titre</th>
+				<th>Auteur</th>
+				<th>Type</th>
+				<th>Catégories</th>
+				<th>Disponibilité</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for book in books %}
+				<tr>
+					<td>{{ book.id }}</td>
+					<td>{{ book.title }}</td>
+					<td>{{ book.author }}</td>
+					<td>{{ book.type }}</td>
+					{# ✅ Affichage du type #}
+					<td>
+						{% if book.categories is defined and book.categories is not empty %}
+							{% for category in book.categories %}
+								{{ category.name }}
+								{% if not loop.last %},
+								{% endif %}
+							{% endfor %}
+						{% else %}
+							Aucune catégorie
+						{% endif %}
+					</td>
+					<td>{{ book.availability ? '✅ Disponible' : '❌ Indisponible' }}</td>
+					<td>
+						<a href="{{ path('admin_edit_book', {'id': book.id}) }}" class="btn btn-warning btn-sm">✏️ Modifier</a>
+						<form action="{{ path('admin_delete_book', {'id': book.id}) }}" method="post" class="d-inline">
+							<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">❌ Supprimer</button>
+						</form>
+
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

@@ -1,0 +1,101 @@
+body {
+    background-image: url('/img/library-5641389_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Arial', sans-serif;
+    color: rgb(251, 251, 252);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* style des boutons */
+.btn-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* style des cartes de livres */
+.book-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+
+/* style du tableau */
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table td, .table th {
+    text-align: center;
+}
+
+/* Style des messages Flash */
+.alert {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Section avec fond coloré pour les ul */
+ul.list-group {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 15px;
+    margin-top: 10px;
+}
+
+/* liens dans les listes */
+ul.list-group li a {
+    color: #3498db; /* Bleu clair pour les liens */
+    text-decoration: none;
+}
+
+ul.list-group li a:hover {
+    text-decoration: underline; /* ajout de soulignement au survol */
+}
+
+h1, h2, h3 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ombre de texte pour améliorer la visibilité */
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.75em;
+    margin-bottom: 15px;
+}
+
+/* texte dans les sections */
+p, li {
+    font-size: 1.1em;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+

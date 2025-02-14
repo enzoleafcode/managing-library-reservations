@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Réservations
+{% endblock %}
+
+{% block body %}
+	<h1>Mes Réservations</h1>
+
+	{% if reservations is empty %}
+		<p>Aucune réservation pour le moment.</p>
+	{% else %}
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Livre</th>
+					<th>Date de réservation</th>
+					<th>Statut</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for reservation in reservations %}
+					<tr>
+						<td>
+							{% for book in reservation.getBooks() %}
+								{{ book.title }}<br>
+							{% endfor %}
+						</td>
+						<td>{{ reservation.reservationDate|date('d-m-Y') }}</td>
+						<td>{{ reservation.status }}</td>
+						<td>
+							{% for book in reservation.getBooks() %}
+								<form action="{{ path('user_remove_book', {'id': reservation.id, 'bookId': book.id}) }}" method="post" class="d-inline">
+									<button type="submit" class="btn btn-danger btn-sm">❌ Retirer</button>
+								</form>
+							{% endfor %}
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}
+

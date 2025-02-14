@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Réservations
+{% endblock %}
+
+{% block body %}
+	<h1>Liste des Réservations</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Utilisateur</th>
+				<th>Livres</th>
+				<th>Date</th>
+				<th>État</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for reservation in reservations %}
+				<tr>
+					<td>{{ reservation.user.email }}</td>
+					<td>
+						{% for book in reservation.books %}
+							{{ book.title }}<br>
+						{% endfor %}
+					</td>
+					<td>{{ reservation.reservationDate|date('d-m-Y') }}</td>
+					<td>
+						{% if reservation.isConfirmed() %}
+							✅ Confirmée
+						{% else %}
+							⏳ En attente
+						{% endif %}
+					</td>
+					<td class="d-flex gap-2">
+						{% if not reservation.isConfirmed() %}
+							<form action="{{ path('admin_confirm_reservation', {'id': reservation.id}) }}" method="post" class="d-inline-block">
+								<button type="submit" class="btn btn-success">Confirmer</button>
+							</form>
+						{% endif %}
+						<form action="{{ path('admin_cancel_reservation', {'id': reservation.id}) }}" method="post" class="d-inline-block">
+							<button type="submit" class="btn btn-danger">Annuler</button>
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
